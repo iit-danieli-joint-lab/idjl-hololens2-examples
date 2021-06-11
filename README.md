@@ -1,1 +1,1 @@
-# idjl-holelens2-demos
+# idjl-hololens2-demos

@@ -5,6 +5,12 @@
 #include "OpenXrProgram.h"
 #include "DxUtility.h"
 
+#include <open62541/plugin/log_stdout.h>
+#include <open62541/server.h>
+#include <open62541/server_config_default.h>
+
+#include <iostream>
+
 namespace {
     struct ImplementOpenXrProgram : sample::IOpenXrProgram {
         ImplementOpenXrProgram(std::string applicationName, std::unique_ptr<sample::IGraphicsPluginD3D11> graphicsPlugin)
@@ -916,4 +922,14 @@ namespace sample {
                                                                 std::unique_ptr<sample::IGraphicsPluginD3D11> graphicsPlugin) {
         return std::make_unique<ImplementOpenXrProgram>(std::move(applicationName), std::move(graphicsPlugin));
     }
+
+    void CreateOPCUAServer() {
+        bool running = false;
+        UA_Server* server = UA_Server_new();
+        UA_ServerConfig_setDefault(UA_Server_getConfig(server));
+
+        UA_StatusCode retval = UA_Server_run(server, &running);
+        std::cerr << "retval: " << retval << std::endl;
+    }
+
 } // namespace sample

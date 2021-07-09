@@ -10,4 +10,4 @@ Vanilla example of HoloLens2 application, taken from https://github.com/microsof
 
 ## BasicXrAppWithExternalDependencies
 
-`BasicXrApp` modified to link `open62541` provided by vcpkg. For more info, check the [README](BasicXrAppWithExternalDependencies).
+`BasicXrApp` modified to link `open62541` provided by vcpkg. For more info, check the [README](BasicXrAppWithVcpkgDependencies).
